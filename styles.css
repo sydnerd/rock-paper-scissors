@@ -15,3 +15,27 @@ nav{
   height: 80px;
   font-size: 3rem;
 }
+
+/* MAIN PAGE */
+.main-page{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* LEFT SECTION */
+.left-section{
+  background-color: #DCDCDC;
+  width: 10%;
+  padding: 20px;
+}
+
+/* RIGHT SECTION */
+.right-section{
+  background-color: #DCDCDC;
+  width: 10%;
+  padding: 20px;
+}
+
+.hidden {
+  display: none;
+}
