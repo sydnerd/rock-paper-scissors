@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="styles.css">
+  <title>Rock Paper Scissors Game</title>
+</head>
+<body>
+  <nav class="nav-bar" id="navBar">Rock, Paper, Scissors</nav>
+  <main class ="main-page" id="mainPage">
+    <section class="left-section" id="leftSection">
+       <h1>Human</h1>
+       <h2>Wins: 0</h2>
+       <button class= "chang-game-button" id="changeGameButton">Change Game?</button>
+    </section>
+    <section class="middle-section" id="middleSection">
+      <h1>Choose your game!</h1>
+      <article class="classic-game" id="classicGame">
+        <h3>Classic</h3>
+        <p>Rock > Scissors</p>
+        <p>Paper > Rock<p>
+        <p>Scissors > Paper<p>
+      </article>
+      <article class="difficult-game" id="difficultGame">
+        <h3>Difficult</h3>
+        <p>Rock > Scissors & Lizard</p>
+        <p>Paper > Rock & Alien</p>
+        <p>Scissors > Paper & Lizard</p>
+        <p>Lizard > Paper & Alien</p>
+        <p>Alien > Scissors & Rock</p>
+      </article>
+      <section class="fighter-buttons" id="fighterButtons">
+        <div class="classic-fighters" id="classicFighters">
+          <button class="rock-button" id="rockButton" value= "Rock"></button>
+          <button class="paper-button" id="paperButton" value= "Paper"></button>
+          <button class="scissors-button" id="scissorsButton" value= "Scissors"></button>
+        </div>
+        <div class="difficult-fighters" id="difficultFighters">
+          <button class="lizard-button" id="lizardButton" value= "Lizard"></button>
+          <button class="alien-button" id="alienButton" value= "Alien"></button>
+        </div>
+      </section>
+    </section>
+    <section class="right-section" id="rightSection">
+      <h1>Computer</h1>
+      <h2>Wins: 0</h2>
+    </section>
+  </main>
+  <script src="main.js"></script>
+  <script src="game.js"></script>
+  <script src="player.js"></script>
+</body>
+</html>
