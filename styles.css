@@ -1,8 +1,17 @@
 /* BODY SECTION */
 body {
-  font-family: "Open Sans", sans-serif;
   background-color: #5F9EA0;
   color: white;
+  font-family: "Open Sans", sans-serif;
+  margin: 0px;
 }
 
 /* NAVIGATE BAR */
+nav{
+  background-color: #DCDCDC;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 80px;
+  font-size: 3rem;
+}
