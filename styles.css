@@ -1,7 +1,7 @@
 /* BODY SECTION */
 body {
-  background-color: #5F9EA0;
-  color: white;
+  background-color: #DB7093;
+  color: black;
   font-family: "Open Sans", sans-serif;
   margin: 0px;
 }
@@ -22,7 +22,7 @@ nav{
   justify-content: space-between;
 }
 
-/* SECTIONS */
+/* LEFT AND RIGHT SECTIONS */
 .right-section,
 .left-section{
   background-color: #DCDCDC;
@@ -48,10 +48,38 @@ nav{
 .change-game-button{
   border: none;
   border-radius: 5px;
-  background-color: #5F9EA0;
-  color: white;
+  background-color: #DB7093;
+  color: black;
   padding: 10px;
   margin-top: 50px;
+}
+
+/* MIDDLE SECTION */
+.middle-section{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.difficult-game-button,
+.classic-game-button,
+.change-game-button:hover{
+  background-color: white;
+  cursor: pointer;
+}
+
+.classic-game-button,
+.difficult-game-button{
+  background-color: #DCDCDC;
+  border: none;
+  margin: 50px 0px 50px 0px
+}
+
+.classic,
+.difficult{
+  padding-top: 10px;
+  display: flex;
+  justify-content: center;
 }
 
 .hidden {
