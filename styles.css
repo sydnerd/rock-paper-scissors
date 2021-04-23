@@ -85,3 +85,8 @@ nav{
 .hidden {
   display: none;
 }
+
+/* BUTTONS */
+.rock-button{
+  background-image: url(./assets/rock.png)
+}
