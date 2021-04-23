@@ -9,5 +9,5 @@ class Player {
 
   retrieveWinsFromStorage(){}
 
-  takeTurn(){}}
+  takeTurn(){}
 }
