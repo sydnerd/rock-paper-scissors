@@ -101,3 +101,6 @@ nav{
   height: auto;
   width: 15%;
 }
+.image:hover{
+  cursor: pointer;
+}
