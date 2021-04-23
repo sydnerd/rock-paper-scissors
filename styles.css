@@ -4,6 +4,7 @@ body {
   color: black;
   font-family: "Open Sans", sans-serif;
   margin: 0px;
+  height: 100vh;
 }
 
 /* NAVIGATE BAR */
@@ -20,18 +21,19 @@ nav{
 .main-page{
   display: flex;
   justify-content: space-between;
+  height: 100%
 }
 
 /* LEFT AND RIGHT SECTIONS */
 .right-section,
 .left-section{
   background-color: #DCDCDC;
-  width: 15%;
+  width: 200px;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  margin: 100px 50px;
+  /* margin: 100px 50px; */
 }
 
 .human-wins,
@@ -58,11 +60,14 @@ nav{
 .middle-section{
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  text-align: center;
 }
 
 .difficult-game-button,
-.classic-game-button,
+.classic-game-button:hover{
+  background-color: white;
+  cursor: pointer;
+}
 .change-game-button:hover{
   background-color: white;
   cursor: pointer;
@@ -72,7 +77,9 @@ nav{
 .difficult-game-button{
   background-color: #DCDCDC;
   border: none;
-  margin: 50px 0px 50px 0px
+  border-radius: 5px;
+  margin: 25px;
+  width: 300px;
 }
 
 .classic,
@@ -86,7 +93,12 @@ nav{
   display: none;
 }
 
-/* BUTTONS */
-.rock-button{
-  background-image: url(./assets/rock.png)
+/* FIGHTERS */
+.fighter-images{
+  margin-top: 100px;
+}
+
+.image{
+  height: auto;
+  width: 15%;
 }
