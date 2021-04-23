@@ -63,18 +63,17 @@ nav{
   text-align: center;
 }
 
-.difficult-game-button,
-.classic-game-button:hover{
-  background-color: white;
+.game-button:hover{
   cursor: pointer;
+  background: white;
 }
+
 .change-game-button:hover{
   background-color: white;
   cursor: pointer;
 }
 
-.classic-game-button,
-.difficult-game-button{
+.game-button{
   background-color: #DCDCDC;
   border: none;
   border-radius: 5px;
@@ -101,4 +100,7 @@ nav{
 .image{
   height: auto;
   width: 15%;
+}
+.image:hover{
+  cursor: pointer;
 }
