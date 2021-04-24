@@ -29,12 +29,12 @@ paperImage.addEventListener("click", function(){
 scissorsImage.addEventListener("click", function(){
   game("scissors");
 })
-alienImage.addEventListener("click", function(){
-  game("alien");
-})
-lizardImage.addEventListener("click", function(){
-  game("lizard");
-})
+// alienImage.addEventListener("click", function(){
+//   game("alien");
+// })
+// lizardImage.addEventListener("click", function(){
+//   game("lizard");
+// })
 
 
 
@@ -99,16 +99,31 @@ function addDifficultIcon(){
   }
 }
 
-function game(fighter){
-  console.log(fighter)
+// function game(choice){
+//   var computerClassic = computerChoice();
+//   console.log("user", choice)
+//   console.log("compu", computerClassic)
+// }
+
+function computerChoice(){
+  var classicChoices = ["rock", "paper", "scissors"];
+  var difficultChoices = ["rock", "paper", "scissors", "alien", "lizard"]
+  var randomChoiceClassic = Math.floor(Math.random() *3);
+  var randomChoiceDifficult = Math.floor(Math.random()*5);
+
+  return classicChoices[randomChoiceClassic];
+  return difficultChoices[randomChoiceDifficult];
 }
 
-function computerChoiceClassic(){
-  var choices = ["rock", "paper", "scissors"]
-  var randomChoice = Math.floor(Math.random() *3);
-  return choices[randomChoice];
-}
-console.log(computerChoiceClassic())
+//if the user clicks classic game, then the computer choice is rock, paper, scissors and
+//you do the random with only the 3 options
+//if the user clicks difficult, then the computer choice at random includes lizard and
+//alien
+//if(classic button was checked){
+// // var choices = ["rock", "paper", "scissors"]
+// var randomChoice = Math.floor(Math.random() *3);
+// return choices[randomChoice];
+// // }else if { difficult was clicked, then include alien and lizard }
 
 function hide(element, hidden) {
    if (hidden) {

@@ -5,9 +5,15 @@ class Player {
     this.wins = wins;
   }
 
-  saveWinsToStorage(){}
+  saveWinsToStorage(){
+    
+  }
 
-  retrieveWinsFromStorage(){}
+  retrieveWinsFromStorage(){
 
-  takeTurn(){}
+  }
+
+  takeTurn(){
+
+  }
 }
