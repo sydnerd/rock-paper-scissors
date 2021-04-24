@@ -4,19 +4,56 @@ class Game {
     this.computer = new Player("computer");
     this.gameType = gameType;
     this.isCompleted = false;
-    this.turn = player1;
+    this.turn = undefined;
     this.winner;
     this.board = "";
   }
 
-  detectWin() {
-    if(this.human.token === "r" && this.computer.token === "s" || "l"){
+  detectClassicWin() {
+    if (this.human.token === this.computer.token) {
+      gameHeading.innerText = "It's a draw!"
+    }
+    if (this.human.token === "r" && this.computer.token === "s") {
       this.human.addWin()
       gameHeading.innerText = "Human won this round!"
-    }else{
-      this.computer.addWins();
+    }
+    if (this.human.token === "r" && this.computer.token === "p") {
+      this.computer.addWin();
       gameHeading.innerText = "Computer won this round!"
     }
+    if (this.human.token === "p" && this.computer.token === "r") {
+      this.human.addWin()
+      gameHeading.innerText = "Human won this round!"
+    }
+    if (this.human.token === "p" && this.computer.token === "s") {
+      this.computer.addWin();
+      gameHeading.innerText = "Computer won this round!"
+    }
+    if (this.human.token === "s" && this.computer.token === "p"|| "l"){
+      this.human.addWin()
+      gameHeading.innerText = "Human won this round!"
+    }
+    if(this.human.token === "s" && this.computer.token === "r"){
+      this.computer.addWin();
+      gameHeading.innerText = "Computer won this round!"
+    }
+    if (this.human.token === "l" && this.computer.token === "p"|| "a"){
+      this.human.addWin()
+      gameHeading.innerText = "Human won this round!"
+    }
+    if(this.human.token === "l" && this.computer.token === "s" || "r"){
+      this.computer.addWin();
+      gameHeading.innerText = "Computer won this round!"
+    }
+    if (this.human.token === "a" && this.computer.token === "s"|| "r"){
+      this.human.addWin()
+      gameHeading.innerText = "Human won this round!"
+    }
+    if(this.human.token === "a" && this.computer.token === "l" || "p"){
+      this.computer.addWin();
+      gameHeading.innerText = "Computer won this round!"
+    }
+
     //classic game type
     //if user === r, computer === p, computer won
     //if user === r, computer === s or L, user won
@@ -32,15 +69,10 @@ class Game {
   }
 
   resetBoard() {
-    this.winner = null;
 
   }
 
-  detectDraw() {
-    if(this.human.token === this.computer.token){
-      gameHeading.innerText = "It's a draw!"
-    }
-  }
+
 
   changePlayer() {
     if (this.turn === this.player1) {

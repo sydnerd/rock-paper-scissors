@@ -17,7 +17,7 @@ class Player {
 
   }
 
-  takeTurn(choice) {
-    this.choice = choice;
+  takeTurn(token) {
+    this.token = token;
   }
 }

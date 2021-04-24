@@ -17,10 +17,10 @@ var lizardImage = document.getElementById("lizardImage");
 var lizardIcon = document.getElementById("lizardIcon");
 var alienImage = document.getElementById("alienImage");
 var alienIcon = document.getElementById("alienIcon")
-var game;
+var game ="";
 
 // EVENT LISTENERS
-window.addEventListener("load", startNewGame)
+// window.addEventListener("load", startNewGame)
 classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
 rockImage.addEventListener("click", function() {
@@ -63,16 +63,18 @@ scissorsImageDifficult.addEventListener("click", function() {
 
 function startGame() {
   game = new Game (gameType)
-
+  game.detectWin()
 }
 
 function classicView() {
   gameView();
+  game = new Game ("classic version")
   hide(classicFighters, true);
 }
 
 function difficultView() {
   gameView();
+  game = new Game ("difficult version")
   hide(difficultFighters, true);
 }
 
@@ -83,24 +85,26 @@ function gameView() {
 }
 
 function classicGame(choice) {
-  var computerClassic = classicComputerChoice();
+  game.computer.token = classicComputerChoice();
   if (event.target.id === "rockImage") {
     hide(rockIcon, true)
     hide(scissorsImage, false)
     hide(paperImage, false)
-  }
+    game.human.token = "r"
+    }
   if (event.target.id === "paperImage") {
     hide(paperIcon, true)
     hide(scissorsImage, false)
     hide(rockImage, false)
+    game.human.token = "p"
   }
   if (event.target.id === "scissorsImage") {
     hide(scissorsIcon, true)
     hide(paperImage, false)
     hide(rockImage, false)
+    game.human.token = "s"
   }
-  console.log("user", choice)
-  console.log("compu", computerClassic)
+  game.detectWin();
 }
 
 function classicComputerChoice() {
