@@ -29,12 +29,12 @@ paperImage.addEventListener("click", function(){
 scissorsImage.addEventListener("click", function(){
   game("scissors");
 })
-// alienImage.addEventListener("click", function(){
-//   game("alien");
-// })
-// lizardImage.addEventListener("click", function(){
-//   game("lizard");
-// })
+alienImage.addEventListener("click", function(){
+  game("alien");
+})
+lizardImage.addEventListener("click", function(){
+  game("lizard");
+})
 
 
 
@@ -99,11 +99,11 @@ function addDifficultIcon(){
   }
 }
 
-// function game(choice){
-//   var computerClassic = computerChoice();
-//   console.log("user", choice)
-//   console.log("compu", computerClassic)
-// }
+function game(choice){
+  var computerChoice = computerChoice();
+  console.log("user", choice)
+  console.log("compu", computerChoice)
+}
 
 function computerChoice(){
   var classicChoices = ["rock", "paper", "scissors"];
@@ -111,8 +111,11 @@ function computerChoice(){
   var randomChoiceClassic = Math.floor(Math.random() *3);
   var randomChoiceDifficult = Math.floor(Math.random()*5);
 
-  return classicChoices[randomChoiceClassic];
-  return difficultChoices[randomChoiceDifficult];
+  if(event.target.id === "classicGameButton"){
+    return classicChoices[randomChoiceClassic];
+  } else if (event.target.id === "difficultGameButton"){
+    return difficultChoices[randomChoiceDifficult];
+  }
 }
 
 //if the user clicks classic game, then the computer choice is rock, paper, scissors and
