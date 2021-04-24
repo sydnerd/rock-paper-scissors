@@ -103,10 +103,12 @@ function game(fighter){
   console.log(fighter)
 }
 
-function computerChoice(){
+function computerChoiceClassic(){
   var choices = ["rock", "paper", "scissors"]
-  console.log(Math.random()*choices.length);
+  var randomChoice = Math.floor(Math.random() *3);
+  return choices[randomChoice];
 }
+console.log(computerChoiceClassic())
 
 function hide(element, hidden) {
    if (hidden) {

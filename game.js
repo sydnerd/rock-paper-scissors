@@ -4,7 +4,6 @@ class Game {
     this.player2 = player2;
     this.board = "";
     this.gameType = gameType;
-    this.turn = false;
     this.isCompleted = false;
   }
 
