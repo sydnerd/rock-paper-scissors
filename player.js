@@ -1,19 +1,19 @@
 class Player {
-  constructor(name, icon, wins){
+  constructor(name){
     this.name = name;
-    this.icon = icon;
-    this.wins = wins;
+    this.choice;
+    this.wins = 0;
   }
 
   saveWinsToStorage(){
-    
+
   }
 
   retrieveWinsFromStorage(){
 
   }
 
-  takeTurn(){
-
+  takeTurn(choice){
+    this.choice = choice;
   }
 }
