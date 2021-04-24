@@ -20,6 +20,7 @@ var alienIcon = document.getElementById("alienIcon")
 var game;
 
 // EVENT LISTENERS
+window.addEventListener("load", startNewGame)
 classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
 rockImage.addEventListener("click", function() {
@@ -60,7 +61,7 @@ scissorsImageDifficult.addEventListener("click", function() {
 //   // var game = new Game
 // }
 
-function startGame(player) {
+function startGame() {
   game = new Game (gameType)
 
 }
@@ -141,8 +142,8 @@ function difficultGame(choice) {
   if (event.target.id === "lizardImage") {
     hide(lizardIcon, true)
     hide(scissorsImageDifficult, false)
-    hide(paperImageDifficult, true)
-    hide(rockImageDifficult, true)
+    hide(paperImageDifficult, false)
+    hide(rockImageDifficult, false)
     hide(alienImage, false)
   }
   console.log("user", choice)
