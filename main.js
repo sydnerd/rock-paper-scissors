@@ -21,19 +21,19 @@ difficultGameButton.addEventListener("click", difficultView)
 classicFighters.addEventListener("click", addClassicIcon)
 difficultFighters.addEventListener("click", addDifficultIcon)
 rockImage.addEventListener("click", function(){
-  game("rock");
+  classicGame("rock");
 })
 paperImage.addEventListener("click", function(){
-  game("paper");
+  classicGame("paper");
 })
 scissorsImage.addEventListener("click", function(){
-  game("scissors");
+  classicGame("scissors");
 })
 alienImage.addEventListener("click", function(){
-  game("alien");
+  difficultGame("alien");
 })
 lizardImage.addEventListener("click", function(){
-  game("lizard");
+  difficultGame("lizard");
 })
 
 
@@ -99,23 +99,28 @@ function addDifficultIcon(){
   }
 }
 
-function game(choice){
-  var computerChoice = computerChoice();
+function classicGame(choice){
+  var computerClassic = classicComputerChoice();
   console.log("user", choice)
-  console.log("compu", computerChoice)
+  console.log("compu", computerClassic)
 }
 
-function computerChoice(){
+function classicComputerChoice(){
   var classicChoices = ["rock", "paper", "scissors"];
-  var difficultChoices = ["rock", "paper", "scissors", "alien", "lizard"]
   var randomChoiceClassic = Math.floor(Math.random() *3);
-  var randomChoiceDifficult = Math.floor(Math.random()*5);
-
-  if(event.target.id === "classicGameButton"){
     return classicChoices[randomChoiceClassic];
-  } else if (event.target.id === "difficultGameButton"){
-    return difficultChoices[randomChoiceDifficult];
   }
+
+function difficultGame(choice){
+  var computerDifficult = difficultComputerChoice();
+  console.log("user", choice)
+  console.log("compu", computerDifficult)
+}
+
+function difficultComputerChoice(){
+  var difficultChoices = ["rock", "paper", "scissors", "alien", "lizard"]
+  var randomChoiceDifficult = Math.floor(Math.random()*5);
+  return difficultChoices[randomChoiceDifficult];
 }
 
 //if the user clicks classic game, then the computer choice is rock, paper, scissors and
