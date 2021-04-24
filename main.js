@@ -20,7 +20,21 @@ classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
 classicFighters.addEventListener("click", addClassicIcon)
 difficultFighters.addEventListener("click", addDifficultIcon)
-
+rockImage.addEventListener("click", function(){
+  game("rock");
+})
+paperImage.addEventListener("click", function(){
+  game("paper");
+})
+scissorsImage.addEventListener("click", function(){
+  game("scissors");
+})
+alienImage.addEventListener("click", function(){
+  game("alien");
+})
+lizardImage.addEventListener("click", function(){
+  game("lizard");
+})
 
 
 
@@ -75,7 +89,6 @@ function addDifficultIcon(){
     paperIcon.classList.add("hidden")
     scissorsIcon.classList.add("hidden")
     alienIcon.classList.add("hidden")
-    console.log("hello")
   }
   if(event.target.id === "alienImage"){
     hide(alienIcon, true)
@@ -84,6 +97,15 @@ function addDifficultIcon(){
     scissorsIcon.classList.add("hidden")
     lizardIcon.classList.add("hidden")
   }
+}
+
+function game(fighter){
+  console.log(fighter)
+}
+
+function computerChoice(){
+  var choices = ["rock", "paper", "scissors"]
+  console.log(Math.random()*choices.length);
 }
 
 function hide(element, hidden) {
