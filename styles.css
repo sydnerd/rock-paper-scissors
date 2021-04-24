@@ -95,12 +95,22 @@ nav{
 /* FIGHTERS */
 .fighter-images{
   margin-top: 100px;
+  display: inline;
 }
 
 .image{
   height: auto;
   width: 15%;
+  margin-bottom: 0px;
+
 }
+
 .image:hover{
   cursor: pointer;
+}
+
+span{
+  bottom: -24px;
+  left: -96px;
+  position: relative;
 }
