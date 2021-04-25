@@ -16,7 +16,9 @@ var scissorsImageDifficult = document.getElementById("scissorsImageDifficult")
 var lizardImage = document.getElementById("lizardImage");
 var lizardIcon = document.getElementById("lizardIcon");
 var alienImage = document.getElementById("alienImage");
-var alienIcon = document.getElementById("alienIcon")
+var alienIcon = document.getElementById("alienIcon");
+var humanWins = document.getElementById("humanWins");
+var computerWins = document.getElementById("computerWins")
 var game = "";
 
 // EVENT LISTENERS
@@ -127,6 +129,7 @@ function classicGame(choice) {
   hideFighters();
   showFighters();
   game.detectClassicWin();
+  displayWins();
 }
 
 function classicComputerChoice() {
@@ -160,12 +163,22 @@ function difficultGame(choice) {
   hideFighters();
   showFighters();
   game.detectDifficultWin();
+  displayWins();
 }
 
 function difficultComputerChoice() {
   var difficultChoices = ["r", "p", "s", "a", "l"]
   var randomChoiceDifficult = Math.floor(Math.random() * 5);
   return difficultChoices[randomChoiceDifficult];
+}
+
+function displayWins(){
+  if(game.human.wins){
+    humanWins.innerText = `Wins: ${game.human.wins}`
+  }
+  if(game.computer.wins){
+    computerWins.innerText = `Wins: ${game.computer.wins}`
+  }
 }
 
 function hide(element, hidden) {
