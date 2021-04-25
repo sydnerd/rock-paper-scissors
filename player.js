@@ -10,11 +10,11 @@ class Player {
   }
 
   saveWinsToStorage() {
-    localStorage.setItem("saveWins", JSON.stringify(this.wins));
+    localStorage.setItem(`${this.name}Wins`, JSON.stringify(this.wins));
   }
 
   retrieveWinsFromStorage() {
-
+    this.wins = JSON.parse(llocalStorage.setItem(`${this.name}Wins`, JSON.stringify(this.wins)))
   }
 
   takeTurn(token) {
