@@ -52,17 +52,6 @@ scissorsImageDifficult.addEventListener("click", function() {
 
 
 // EVENT HANDLERS AND GLOBAL FUNCTIONS
-// function gameChoice() {
-//   if(event.target.id === "classicGameButton"){
-//     classicView();
-//     classicGame();
-//   }else{
-//     difficultView();
-//     difficultGame();
-//   }
-//   // var game = new Game
-// }
-
 function startGame() {
   game = new Game(gameType)
   game.detectWin()
@@ -87,6 +76,10 @@ function gameView() {
 }
 
 //when there is a draw in the classic game, only one image shows
+//how do I fix the formatting of the fighters?
+// how do I make sure the icon only shows for a second
+//need to store the wins and retrieve them
+
 function showFighters() {
   var humanToken = game.human.token;
   var computerToken = game.computer.token;
