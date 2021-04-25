@@ -1,19 +1,23 @@
 class Player {
-  constructor(name){
-    this.name = name;
-    this.choice;
+  constructor(playerName) {
+    this.name = playerName;
+    this.token;
     this.wins = 0;
   }
 
-  saveWinsToStorage(){
+  addWin() {
+    this.wins++;
+  }
+
+  saveWinsToStorage() {
 
   }
 
-  retrieveWinsFromStorage(){
+  retrieveWinsFromStorage() {
 
   }
 
-  takeTurn(choice){
-    this.choice = choice;
+  takeTurn(token) {
+    this.token = token;
   }
 }

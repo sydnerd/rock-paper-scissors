@@ -8,7 +8,7 @@ body {
 }
 
 /* NAVIGATE BAR */
-nav{
+nav {
   background-color: #DCDCDC;
   display: flex;
   justify-content: center;
@@ -18,7 +18,7 @@ nav{
 }
 
 /* MAIN PAGE */
-.main-page{
+.main-page {
   display: flex;
   justify-content: space-between;
   height: 100%
@@ -26,7 +26,7 @@ nav{
 
 /* LEFT AND RIGHT SECTIONS */
 .right-section,
-.left-section{
+.left-section {
   background-color: #DCDCDC;
   width: 200px;
   display: flex;
@@ -37,17 +37,17 @@ nav{
 }
 
 .human-wins,
-.computer-wins{
+.computer-wins {
   font-size: 1rem;
 }
 
 .human-header,
-.computer-header{
+.computer-header {
   margin-top: 0px;
   margin-bottom: 0px;
 }
 
-.change-game-button{
+.change-game-button {
   border: none;
   border-radius: 5px;
   background-color: #DB7093;
@@ -57,23 +57,23 @@ nav{
 }
 
 /* MIDDLE SECTION */
-.middle-section{
+.middle-section {
   display: flex;
   flex-direction: column;
   text-align: center;
 }
 
-.game-button:hover{
+.game-button:hover {
   cursor: pointer;
   background: white;
 }
 
-.change-game-button:hover{
+.change-game-button:hover {
   background-color: white;
   cursor: pointer;
 }
 
-.game-button{
+.game-button {
   background-color: #DCDCDC;
   border: none;
   border-radius: 5px;
@@ -82,7 +82,7 @@ nav{
 }
 
 .classic,
-.difficult{
+.difficult {
   padding-top: 10px;
   display: flex;
   justify-content: center;
@@ -93,23 +93,22 @@ nav{
 }
 
 /* FIGHTERS */
-.fighter-images{
+.fighter-images {
   margin-top: 100px;
   display: inline;
 }
 
-.image{
+.image {
   height: auto;
   width: 15%;
   margin-bottom: 0px;
-
 }
 
-.image:hover{
+.image:hover {
   cursor: pointer;
 }
 
-span{
+span {
   bottom: -24px;
   left: -96px;
   position: relative;
