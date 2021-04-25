@@ -17,7 +17,7 @@ var lizardImage = document.getElementById("lizardImage");
 var lizardIcon = document.getElementById("lizardIcon");
 var alienImage = document.getElementById("alienImage");
 var alienIcon = document.getElementById("alienIcon")
-var game ="";
+var game = "";
 
 // EVENT LISTENERS
 // window.addEventListener("load", startNewGame)
@@ -62,19 +62,19 @@ scissorsImageDifficult.addEventListener("click", function() {
 // }
 
 function startGame() {
-  game = new Game (gameType)
+  game = new Game(gameType)
   game.detectWin()
 }
 
 function classicView() {
   gameView();
-  game = new Game ("classic version")
+  game = new Game("classic version")
   hide(classicFighters, true);
 }
 
 function difficultView() {
   gameView();
-  game = new Game ("difficult version")
+  game = new Game("difficult version")
   hide(difficultFighters, true);
 }
 
@@ -83,45 +83,42 @@ function gameView() {
   hide(classicGameButton, false);
   gameHeading.innerText = "Choose your fighter!"
 }
-function showFighters(){
+
+function showFighters() {
   var humanToken = game.human.token;
   var computerToken = game.computer.token;
-  var fighters = [rockImage, paperImage, scissorsImage];
-  for(var i =0; i < fighters.length; i++){
-    if(humanToken === fighters[i].dataset.name){
+  var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
+  for (var i = 0; i < fighters.length; i++) {
+    if (humanToken === fighters[i].dataset.name) {
       hide(fighters[i], true)
     }
-    if(computerToken === fighters[i].dataset.name){
+    if (computerToken === fighters[i].dataset.name) {
       hide(fighters[i], true)
     }
   }
-      console.log(fighters)
 }
 
-function hideFighters(){
+function hideFighters() {
   hide(paperImage, false)
   hide(scissorsImage, false)
   hide(rockImage, false)
+  hide(rockImageDifficult, false)
+  hide(paperImageDifficult, false)
+  hide(scissorsImageDifficult, false)
 }
 
 function classicGame(choice) {
   game.computer.token = classicComputerChoice();
   if (event.target.id === "rockImage") {
     hide(rockIcon, true)
-    // hide(scissorsImage, false)
-    // hide(paperImage, false)
     game.human.token = "r"
-    }
+  }
   if (event.target.id === "paperImage") {
     hide(paperIcon, true)
-    // hide(scissorsImage, false)
-    // hide(rockImage, false)
     game.human.token = "p"
   }
   if (event.target.id === "scissorsImage") {
     hide(scissorsIcon, true)
-    // hide(paperImage, false)
-    // hide(rockImage, false)
     game.human.token = "s"
   }
   hideFighters();
