@@ -83,28 +83,50 @@ function gameView() {
   hide(classicGameButton, false);
   gameHeading.innerText = "Choose your fighter!"
 }
+function showFighters(){
+  var humanToken = game.human.token;
+  var computerToken = game.computer.token;
+  var fighters = [rockImage, paperImage, scissorsImage];
+  for(var i =0; i < fighters.length; i++){
+    if(humanToken === fighters[i].dataset.name){
+      hide(fighters[i], true)
+    }
+    if(computerToken === fighters[i].dataset.name){
+      hide(fighters[i], true)
+    }
+  }
+      console.log(fighters)
+}
+
+function hideFighters(){
+  hide(paperImage, false)
+  hide(scissorsImage, false)
+  hide(rockImage, false)
+}
 
 function classicGame(choice) {
   game.computer.token = classicComputerChoice();
   if (event.target.id === "rockImage") {
     hide(rockIcon, true)
-    hide(scissorsImage, false)
-    hide(paperImage, false)
+    // hide(scissorsImage, false)
+    // hide(paperImage, false)
     game.human.token = "r"
     }
   if (event.target.id === "paperImage") {
     hide(paperIcon, true)
-    hide(scissorsImage, false)
-    hide(rockImage, false)
+    // hide(scissorsImage, false)
+    // hide(rockImage, false)
     game.human.token = "p"
   }
   if (event.target.id === "scissorsImage") {
     hide(scissorsIcon, true)
-    hide(paperImage, false)
-    hide(rockImage, false)
+    // hide(paperImage, false)
+    // hide(rockImage, false)
     game.human.token = "s"
   }
-  game.detectWin();
+  hideFighters();
+  showFighters();
+  game.detectClassicWin();
 }
 
 function classicComputerChoice() {

@@ -8,51 +8,64 @@ class Game {
     this.winner;
     this.board = "";
   }
-
-  detectClassicWin() {
+  detectClassicWin(){
     if (this.human.token === this.computer.token) {
-      gameHeading.innerText = "It's a draw!"
-    }
-    if (this.human.token === "r" && this.computer.token === "s") {
+        gameHeading.innerText = "It's a draw!"
+      }
+    if(this.human.token === "r" && this.computer.token === "s" || this.human.token === "p" && this.computer.token ==="r" || this.human.token ==="s" && this.computer.token === "p"){
       this.human.addWin()
       gameHeading.innerText = "Human won this round!"
     }
-    if (this.human.token === "r" && this.computer.token === "p") {
-      this.computer.addWin();
+    if(this.human.token === "r" && this.computer.token === "p" || this.human.token === "p" && this.computer.token ==="s" || this.human.token ==="s" && this.computer.token === "r"){
+      this.computer.addWin()
       gameHeading.innerText = "Computer won this round!"
     }
-    if (this.human.token === "p" && this.computer.token === "r") {
-      this.human.addWin()
-      gameHeading.innerText = "Human won this round!"
-    }
-    if (this.human.token === "p" && this.computer.token === "s") {
-      this.computer.addWin();
-      gameHeading.innerText = "Computer won this round!"
-    }
-    if (this.human.token === "s" && this.computer.token === "p"|| "l"){
-      this.human.addWin()
-      gameHeading.innerText = "Human won this round!"
-    }
-    if(this.human.token === "s" && this.computer.token === "r"){
-      this.computer.addWin();
-      gameHeading.innerText = "Computer won this round!"
-    }
-    if (this.human.token === "l" && this.computer.token === "p"|| "a"){
-      this.human.addWin()
-      gameHeading.innerText = "Human won this round!"
-    }
-    if(this.human.token === "l" && this.computer.token === "s" || "r"){
-      this.computer.addWin();
-      gameHeading.innerText = "Computer won this round!"
-    }
-    if (this.human.token === "a" && this.computer.token === "s"|| "r"){
-      this.human.addWin()
-      gameHeading.innerText = "Human won this round!"
-    }
-    if(this.human.token === "a" && this.computer.token === "l" || "p"){
-      this.computer.addWin();
-      gameHeading.innerText = "Computer won this round!"
-    }
+  }
+
+  // detectClassicWin() {
+  //   if (this.human.token === this.computer.token) {
+  //     gameHeading.innerText = "It's a draw!"
+  //   }
+  //   if (this.human.token === "r" && this.computer.token === "s") {
+  //     this.human.addWin()
+  //     gameHeading.innerText = "Human won this round!"
+  //   }
+  //   // if (this.human.token === "r" && this.computer.token === "p") {
+  //   //   this.computer.addWin();
+  //   //   gameHeading.innerText = "Computer won this round!"
+  //   // }
+  //   if (this.human.token === "p" && this.computer.token === "r") {
+  //     this.human.addWin()
+  //     gameHeading.innerText = "Human won this round!"
+  //   }
+  //   // if (this.human.token === "p" && this.computer.token === "s") {
+  //   //   this.computer.addWin();
+  //   //   gameHeading.innerText = "Computer won this round!"
+  //   // }
+  //   if (this.human.token === "s" && this.computer.token === "p"|| "l"){
+  //     this.human.addWin()
+  //     gameHeading.innerText = "Human won this round!"
+  //   }
+  //   // if(this.human.token === "s" && this.computer.token === "r"){
+  //   //   this.computer.addWin();
+  //   //   gameHeading.innerText = "Computer won this round!"
+  //   // }
+  //   // if (this.human.token === "l" && this.computer.token === "p"|| "a"){
+  //   //   this.human.addWin()
+  //   //   gameHeading.innerText = "Human won this round!"
+  //   // }
+  //   // if(this.human.token === "l" && this.computer.token === "s" || "r"){
+  //   //   this.computer.addWin();
+  //   //   gameHeading.innerText = "Computer won this round!"
+  //   // }
+  //   // if (this.human.token === "a" && this.computer.token === "s"|| "r"){
+  //   //   this.human.addWin()
+  //   //   gameHeading.innerText = "Human won this round!"
+  //   // }
+  //   // if(this.human.token === "a" && this.computer.token === "l" || "p"){
+  //   //   this.computer.addWin();
+  //   //   gameHeading.innerText = "Computer won this round!"
+  //   }
 
     //classic game type
     //if user === r, computer === p, computer won
@@ -66,11 +79,10 @@ class Game {
     //if user === A , computer=== s or R, user won
     //else computer won
 
-  }
-
-  resetBoard() {
-
-  }
+  // 
+  // resetBoard() {
+  //   setTimeout(this.human)
+  // }
 
 
 
