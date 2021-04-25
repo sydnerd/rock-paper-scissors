@@ -1,7 +1,7 @@
 class Game {
-  constructor(gameType) {
-    this.human = new Player("human")
-    this.computer = new Player("computer");
+  constructor(gameType, human, computer) {
+    this.human = human;
+    this.computer = computer;
     this.gameType = gameType;
     this.isCompleted = false;
     this.turn = undefined;
@@ -36,7 +36,10 @@ detectDifficultWin(){
   }
 }
 
-
+retrieveWinsFromStorage(){
+  this.human.retrieveWinsFromStorage();
+  this.computer.retrieveWinsFromStorage();
+}
   //
   // resetBoard() {
   //   setTimeout(this.human)
@@ -45,10 +48,10 @@ detectDifficultWin(){
 
 
   changePlayer() {
-    if (this.turn === this.player1) {
-      this.turn = this.player2
+    if (this.turn === this.human) {
+      this.turn = this.computer
     } else {
-      this.turn = this.player1
+      this.turn = this.human
     }
   }
 }

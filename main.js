@@ -20,12 +20,21 @@ var alienIcon = document.getElementById("alienIcon");
 var humanWins = document.getElementById("humanWins");
 var computerWins = document.getElementById("computerWins")
 var changeGame = document.getElementById("changeGameButton");
+var humanTokenImage = document.getElementById("humanTokenImage");
+var computerTokenImage = document.getElementById("computerTokenImage")
 var game = "";
+var human = new Player("human");
+var computer = new Player("computer")
 
 // EVENT LISTENERS
-// window.addEventListener("load", startNewGame)
+window.addEventListener("load", function() {
+  human.retrieveWinsFromStorage();
+  computer.retrieveWinsFromStorage();
+  displayWins();
+})
 classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
+changeGame.addEventListener("click", change)
 rockImage.addEventListener("click", function() {
   classicGame("r");
 })
@@ -53,20 +62,15 @@ scissorsImageDifficult.addEventListener("click", function() {
 
 
 // EVENT HANDLERS AND GLOBAL FUNCTIONS
-// function startGame() {
-//   game = new Game(gameType)
-//   game.detectWin()
-// }
-
 function classicView() {
   gameView();
-  game = new Game("classic version")
+  game = new Game("classic version", human, computer)
   hide(classicFighters, true);
 }
 
 function difficultView() {
   gameView();
-  game = new Game("difficult version")
+  game = new Game("difficult version", human, computer)
   hide(difficultFighters, true);
 }
 
@@ -76,21 +80,22 @@ function gameView() {
   gameHeading.innerText = "Choose your fighter!"
 }
 
-//when there is a draw in the classic game, only one image shows
 function showFighters() {
   var humanToken = game.human.token;
   var computerToken = game.computer.token;
   var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
   for (var i = 0; i < fighters.length; i++) {
+    console.log(fighters[0])
     if (humanToken === fighters[i].dataset.name) {
-      hide(fighters[i], true)
+      humanTokenImage.src = `${fighters[i].src}`
     }
     if (computerToken === fighters[i].dataset.name) {
-      hide(fighters[i], true)
+      computerTokenImage.src = `${fighters[i].src}`
     }
   }
 }
 
+//use event delegation and hide the container
 function hideFighters() {
   hide(paperImage, false)
   hide(scissorsImage, false)
@@ -105,19 +110,19 @@ function hideFighters() {
 function classicGame(choice) {
   game.computer.token = classicComputerChoice();
   if (event.target.id === "rockImage") {
-    hide(rockIcon, true)
     game.human.token = "r"
   }
   if (event.target.id === "paperImage") {
-    hide(paperIcon, true)
     game.human.token = "p"
   }
   if (event.target.id === "scissorsImage") {
-    hide(scissorsIcon, true)
     game.human.token = "s"
   }
+  event.target.innerHTML += `<span class="icon" id="rockIcon">&#x1F920;</span>`
   hideFighters();
-  showFighters();
+  setTimeout(function() {
+    showFighters()
+  }, 1000);
   game.detectClassicWin();
   displayWins();
 }
@@ -131,27 +136,24 @@ function classicComputerChoice() {
 function difficultGame(choice) {
   game.computer.token = difficultComputerChoice();
   if (event.target.id === "rockImageDifficult") {
-    hide(rockIconDifficult, true)
     game.human.token = "r"
   }
   if (event.target.id === "paperImageDifficult") {
-    hide(paperIconDifficult, true)
     game.human.token = "p"
   }
   if (event.target.id === "scissorsImageDifficult") {
-    hide(scissorsIconDifficult, true)
     game.human.token = "s"
   }
   if (event.target.id === "alienImage") {
-    hide(alienIcon, true)
     game.human.token = "a"
   }
   if (event.target.id === "lizardImage") {
-    hide(lizardIcon, true)
     game.human.token = "l"
   }
   hideFighters();
-  showFighters();
+  setTimeout(function() {
+    showFighters()
+  }, 1000);
   game.detectDifficultWin();
   displayWins();
 }
@@ -162,18 +164,18 @@ function difficultComputerChoice() {
   return difficultChoices[randomChoiceDifficult];
 }
 
+function change() {
+
+}
+
 function getWins() {
   game.human.retrieveWinsFromStorage();
   game.computer.retrieveWinsFromStorage();
 }
 
 function displayWins() {
-  if (game.human.wins) {
-    humanWins.innerText = `Wins: ${game.human.wins}`
-  }
-  if (game.computer.wins) {
-    computerWins.innerText = `Wins: ${game.computer.wins}`
-  }
+  humanWins.innerText = `Wins: ${human.wins}`
+  computerWins.innerText = `Wins: ${computer.wins}`
 }
 
 function hide(element, hidden) {
