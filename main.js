@@ -84,6 +84,7 @@ function gameView() {
   gameHeading.innerText = "Choose your fighter!"
 }
 
+//when there is a draw in the classic game, only one image shows
 function showFighters() {
   var humanToken = game.human.token;
   var computerToken = game.computer.token;
@@ -105,6 +106,8 @@ function hideFighters() {
   hide(rockImageDifficult, false)
   hide(paperImageDifficult, false)
   hide(scissorsImageDifficult, false)
+  hide(alienImage, false)
+  hide(lizardImage, false)
 }
 
 function classicGame(choice) {
@@ -133,44 +136,30 @@ function classicComputerChoice() {
 }
 
 function difficultGame(choice) {
-  var computerDifficult = difficultComputerChoice();
+  game.computer.token = difficultComputerChoice();
   if (event.target.id === "rockImageDifficult") {
-    hide(rockIcon, true)
-    hide(scissorsImageDifficult, false)
-    hide(paperImageDifficult, false)
-    hide(alienImage, false)
-    hide(lizardImage, false)
+    hide(rockIconDifficult, true)
+    game.human.token = "r"
   }
   if (event.target.id === "paperImageDifficult") {
-    hide(paperIcon, true)
-    hide(scissorsImageDifficult, false)
-    hide(rockImageDifficult, false)
-    hide(alienImage, false)
-    hide(lizardImage, false)
+    hide(paperIconDifficult, true)
+    game.human.token = "p"
   }
   if (event.target.id === "scissorsImageDifficult") {
-    hide(scissorsIcon, true)
-    hide(paperImageDifficult, false)
-    hide(rockImageDifficult, false)
-    hide(alienImage, false)
-    hide(lizardImage, false)
+    hide(scissorsIconDifficult, true)
+    game.human.token = "s"
   }
   if (event.target.id === "alienImage") {
     hide(alienIcon, true)
-    hide(scissorsImageDifficult, false)
-    hide(paperImageDifficult, false)
-    hide(rockImageDifficult, false)
-    hide(lizardImage, false)
+    game.human.token = "a"
   }
   if (event.target.id === "lizardImage") {
     hide(lizardIcon, true)
-    hide(scissorsImageDifficult, false)
-    hide(paperImageDifficult, false)
-    hide(rockImageDifficult, false)
-    hide(alienImage, false)
+    game.human.token = "l"
   }
-  console.log("user", choice)
-  console.log("compu", computerDifficult)
+  hideFighters();
+  showFighters();
+  game.detectDifficultWin();
 }
 
 function difficultComputerChoice() {
