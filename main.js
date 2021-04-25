@@ -19,6 +19,7 @@ var alienImage = document.getElementById("alienImage");
 var alienIcon = document.getElementById("alienIcon");
 var humanWins = document.getElementById("humanWins");
 var computerWins = document.getElementById("computerWins")
+var changeGame = document.getElementById("changeGameButton");
 var game = "";
 
 // EVENT LISTENERS
@@ -52,21 +53,10 @@ scissorsImageDifficult.addEventListener("click", function() {
 
 
 // EVENT HANDLERS AND GLOBAL FUNCTIONS
-// function gameChoice() {
-//   if(event.target.id === "classicGameButton"){
-//     classicView();
-//     classicGame();
-//   }else{
-//     difficultView();
-//     difficultGame();
-//   }
-//   // var game = new Game
+// function startGame() {
+//   game = new Game(gameType)
+//   game.detectWin()
 // }
-
-function startGame() {
-  game = new Game(gameType)
-  game.detectWin()
-}
 
 function classicView() {
   gameView();
@@ -172,11 +162,16 @@ function difficultComputerChoice() {
   return difficultChoices[randomChoiceDifficult];
 }
 
-function displayWins(){
-  if(game.human.wins){
+function getWins() {
+  game.human.retrieveWinsFromStorage();
+  game.computer.retrieveWinsFromStorage();
+}
+
+function displayWins() {
+  if (game.human.wins) {
     humanWins.innerText = `Wins: ${game.human.wins}`
   }
-  if(game.computer.wins){
+  if (game.computer.wins) {
     computerWins.innerText = `Wins: ${game.computer.wins}`
   }
 }
