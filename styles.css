@@ -83,9 +83,11 @@ body {
   display: none;
 }
 
-.title{
+.title {
   font-size: 4rem;
+  margin-bottom: 0px;
 }
+
 /* FIGHTERS */
 .fighter-images {
   margin-top: 100px;

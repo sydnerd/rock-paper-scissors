@@ -4,6 +4,7 @@ class Game {
     this.computer = computer;
     this.gameType = gameType;
     this.board = "";
+    //need to update this.board somewhere 
   }
   detectClassicWin() {
     if (this.human.token === this.computer.token) {
@@ -38,11 +39,11 @@ class Game {
     this.computer.retrieveWinsFromStorage();
   }
 
+  //its not working properly, also need to reset the game properties
   resetGame() {
     hide(selectedTokens, false)
     hide(changeGameButton, true);
     show();
-    gameHeading.innerText = "Choose your fighter!"  
+    gameHeading.innerText = "Choose your fighter!"
   }
-
 }

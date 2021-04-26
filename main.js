@@ -11,6 +11,7 @@ var difficultGameButton = document.getElementById("difficultGameButton");
 var gameHeading = document.getElementById("gameHeading");
 var humanTokenImage = document.getElementById("humanTokenImage");
 var humanWins = document.getElementById("humanWins");
+var images = document.querySelector("image");
 var lizardIcon = document.getElementById("lizardIcon");
 var lizardImage = document.getElementById("lizardImage");
 var paperIcon = document.getElementById("paperIcon");
@@ -37,30 +38,30 @@ window.addEventListener("load", function() {
 })
 classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
-changeGame.addEventListener("click", change)
+changeGame.addEventListener("click", changeGame)
 rockImage.addEventListener("click", function() {
-  classicGame("r");
+  startClassicGame("r");
 })
 paperImage.addEventListener("click", function() {
-  classicGame("p");
+  startClassicGame("p");
 })
 scissorsImage.addEventListener("click", function() {
-  classicGame("s");
+  startClassicGame("s");
 })
 alienImage.addEventListener("click", function() {
-  difficultGame("a");
+  startDifficultGame("a");
 })
 lizardImage.addEventListener("click", function() {
-  difficultGame("l");
+  startDifficultGame("l");
 })
 rockImageDifficult.addEventListener("click", function() {
-  difficultGame("r");
+  startDifficultGame("r");
 })
 paperImageDifficult.addEventListener("click", function() {
-  difficultGame("p");
+  startDifficultGame("p");
 })
 scissorsImageDifficult.addEventListener("click", function() {
-  difficultGame("s");
+  startDifficultGame("s");
 })
 
 
@@ -123,8 +124,12 @@ function show() {
   hide(lizardImage, true)
 }
 
-function classicGame(choice) {
-  game.computer.token = classicComputerChoice();
+// function displayIcon() {
+//   images.innerHTML += `<span class="icon">&#x1F920;</span>`
+// }
+
+function startClassicGame(choice) {
+  game.computer.token = findClassicComputerChoice();
   if (event.target.id === "rockImage") {
     game.human.token = "r"
   }
@@ -145,14 +150,14 @@ function classicGame(choice) {
   }, 2000);
 }
 
-function classicComputerChoice() {
+function findClassicComputerChoice() {
   var classicChoices = ["r", "p", "s"];
   var randomChoiceClassic = Math.floor(Math.random() * 3);
   return classicChoices[randomChoiceClassic];
 }
 
-function difficultGame(choice) {
-  game.computer.token = difficultComputerChoice();
+function startDifficultGame(choice) {
+  game.computer.token = findDifficultComputerChoice();
   if (event.target.id === "rockImageDifficult") {
     game.human.token = "r"
   }
@@ -179,7 +184,7 @@ function difficultGame(choice) {
   displayWins();
 }
 
-function difficultComputerChoice() {
+function findDifficultComputerChoice() {
   var difficultChoices = ["r", "p", "s", "a", "l"]
   var randomChoiceDifficult = Math.floor(Math.random() * 5);
   return difficultChoices[randomChoiceDifficult];
@@ -196,11 +201,12 @@ function displayWins() {
   computerWins.innerText = `Wins: ${computer.wins}`
 }
 
-function change() {
+function changeGame() {
   hide(difficultGameButton, true);
   hide(classicGameButton, true);
   hideFighters();
-  hide(changeGameButton,false)
+  hide(changeGameButton, false)
+  gameHeading.innerText = "Choose your game!"
 }
 
 function hide(element, hidden) {
@@ -221,6 +227,4 @@ function hide(element, hidden) {
 //push information into game.board
 
 //REFACTOR OPPORTUNITIES
-//CSS:
-//the header, pink should but in the middle
-//
+//change function names to verbs **
