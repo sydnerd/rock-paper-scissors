@@ -7,14 +7,15 @@ class Player {
 
   addWin() {
     this.wins++;
+    this.saveWinsToStorage();
   }
 
   saveWinsToStorage() {
-
+    localStorage.setItem(`${this.name}Wins`, JSON.stringify(this.wins));
   }
 
   retrieveWinsFromStorage() {
-
+    this.wins = JSON.parse(localStorage.getItem(`${this.name}Wins`));
   }
 
   takeTurn(token) {
