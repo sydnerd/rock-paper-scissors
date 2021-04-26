@@ -3,8 +3,6 @@ class Game {
     this.human = human;
     this.computer = computer;
     this.gameType = gameType;
-    this.board = "";
-    //need to update this.board somewhere
   }
   detectClassicWin() {
     if (this.human.token === this.computer.token) {
@@ -39,19 +37,14 @@ class Game {
     this.computer.retrieveWinsFromStorage();
   }
 
-  //its not working properly, also need to reset the game properties
   resetGame() {
     selectedTokens.classList.add("hidden")
-    // humanTokenImage.classList.add("hidden")
-    // computerTokenImage.classList.add("hidden")
     changeGameButton.classList.remove("hidden")
     gameHeading.innerText = "Choose your fighter!"
-    if(this.gameType === "difficult version"){
+    if (this.gameType === "difficult version") {
       showDifficultOptions()
-      difficultFighters.classList.remove("hidden")
-    }else {
+    } else {
       showClassicOptions()
-      classicFighters.classlist.remove("hidden")
     }
   }
 }

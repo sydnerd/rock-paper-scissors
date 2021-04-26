@@ -71,9 +71,9 @@ function classicView() {
   game = new Game("classic version", human, computer)
   classicFighters.classList.remove("hidden")
   difficultFighters.classList.add("hidden")
-  setTimeout(function() {
+  // setTimeout(function() {
     showClassicOptions()
-  }, 2000);
+  // }, 2000);
 }
 
 function difficultView() {
@@ -81,9 +81,9 @@ function difficultView() {
   game = new Game("difficult version", human, computer)
   difficultFighters.classList.remove("hidden")
   classicFighters.classList.add("hidden")
-  setTimeout(function() {
+  // setTimeout(function() {
     showDifficultOptions()
-  }, 2000);
+  // }, 2000);
 }
 
 function gameView() {
@@ -143,14 +143,12 @@ function startClassicGame(choice) {
     game.human.token = "s"
   }
   hideOptions();
-  setTimeout(function() {
     showSelectedFighters()
-  }, 1000);
   game.detectClassicWin();
   displayWins();
   setTimeout(function() {
-    game.resetGame()
-  }, 3000);
+  game.resetGame()
+  }, 1000);
 }
 
 function findClassicComputerChoice() {
@@ -177,12 +175,10 @@ function startDifficultGame(choice) {
     game.human.token = "l"
   }
   hideOptions();
-  setTimeout(function() {
     showSelectedFighters()
-  }, 1000);
   setTimeout(function() {
     game.resetGame()
-  }, 2000);
+  }, 1000);
   game.detectDifficultWin();
   displayWins();
 }
