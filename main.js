@@ -21,7 +21,8 @@ var humanWins = document.getElementById("humanWins");
 var computerWins = document.getElementById("computerWins")
 var changeGame = document.getElementById("changeGameButton");
 var humanTokenImage = document.getElementById("humanTokenImage");
-var computerTokenImage = document.getElementById("computerTokenImage")
+var computerTokenImage = document.getElementById("computerTokenImage");
+var selectedTokens = document.getElementById("selectedTokens");
 var game = "";
 var human = new Player("human");
 var computer = new Player("computer")
@@ -34,7 +35,7 @@ window.addEventListener("load", function() {
 })
 classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
-changeGame.addEventListener("click", change)
+// changeGame.addEventListener("click", change)
 rockImage.addEventListener("click", function() {
   classicGame("r");
 })
@@ -118,11 +119,11 @@ function classicGame(choice) {
   if (event.target.id === "scissorsImage") {
     game.human.token = "s"
   }
-  event.target.innerHTML += `<span class="icon" id="rockIcon">&#x1F920;</span>`
   hideFighters();
   setTimeout(function() {
     showFighters()
   }, 1000);
+  setTimeout(game.resetClassicGame, 2000)
   game.detectClassicWin();
   displayWins();
 }
@@ -154,6 +155,7 @@ function difficultGame(choice) {
   setTimeout(function() {
     showFighters()
   }, 1000);
+
   game.detectDifficultWin();
   displayWins();
 }
@@ -164,9 +166,6 @@ function difficultComputerChoice() {
   return difficultChoices[randomChoiceDifficult];
 }
 
-function change() {
-
-}
 
 function getWins() {
   game.human.retrieveWinsFromStorage();
@@ -177,6 +176,7 @@ function displayWins() {
   humanWins.innerText = `Wins: ${human.wins}`
   computerWins.innerText = `Wins: ${computer.wins}`
 }
+
 
 function hide(element, hidden) {
   if (hidden) {
@@ -189,7 +189,11 @@ function hide(element, hidden) {
 //add the emojis on the token option
 //add the change game button that resets the game
 //reset method in game class
-//wins is null when you clear the storage 
+//wins is null when you clear the storage
+//time out after each game
+//game, way to keep track of whose turn it is
+//README
+//push information into game.board
 
 //REFACTOR OPPORTUNITIES
 //CSS:
