@@ -29,6 +29,7 @@ var selectedTokens = document.getElementById("selectedTokens");
 var game = "";
 var human = new Player("human");
 var computer = new Player("computer")
+var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
 
 // EVENT LISTENERS
 window.addEventListener("load", function() {
@@ -38,7 +39,7 @@ window.addEventListener("load", function() {
 })
 classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
-changeGame.addEventListener("click", changeGame)
+changeGame.addEventListener("click", changeGameOption)
 rockImage.addEventListener("click", function() {
   startClassicGame("r");
 })
@@ -64,31 +65,37 @@ scissorsImageDifficult.addEventListener("click", function() {
   startDifficultGame("s");
 })
 
-
 // EVENT HANDLERS AND GLOBAL FUNCTIONS
 function classicView() {
   gameView();
   game = new Game("classic version", human, computer)
-  hide(classicFighters, true);
-  show();
+  classicFighters.classList.remove("hidden")
+  difficultFighters.classList.add("hidden")
+  setTimeout(function() {
+    showClassicOptions()
+  }, 2000);
 }
 
 function difficultView() {
   gameView();
   game = new Game("difficult version", human, computer)
-  hide(difficultFighters, true);
+  difficultFighters.classList.remove("hidden")
+  classicFighters.classList.add("hidden")
+  setTimeout(function() {
+    showDifficultOptions()
+  }, 2000);
 }
 
 function gameView() {
-  hide(difficultGameButton, false);
-  hide(classicGameButton, false);
+  hide(difficultGameButton);
+  hide(classicGameButton);
   gameHeading.innerText = "Choose your fighter!"
 }
 
-function showFighters() {
+function showSelectedFighters() {
   var humanToken = game.human.token;
   var computerToken = game.computer.token;
-  var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
+  // var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
   for (var i = 0; i < fighters.length; i++) {
     if (humanToken === fighters[i].dataset.name) {
       humanTokenImage.src = `${fighters[i].src}`
@@ -97,33 +104,29 @@ function showFighters() {
       computerTokenImage.src = `${fighters[i].src}`
     }
   }
-  hide(selectedTokens, true)
+  selectedTokens.classList.remove("hidden")
 }
 
 //use event delegation and hide the container
-function hideFighters() {
-  hide(paperImage, false)
-  hide(scissorsImage, false)
-  hide(rockImage, false)
-  hide(rockImageDifficult, false)
-  hide(paperImageDifficult, false)
-  hide(scissorsImageDifficult, false)
-  hide(alienImage, false)
-  hide(lizardImage, false)
+function hideOptions() {
+  for (var i = 0; i < fighters.length; i++) {
+    console.log(fighters[i])
+    fighters[i].classList.add("hidden")
+  }
 }
 
 //use event delegation and hide the container
-function show() {
-  hide(paperImage, true)
-  hide(scissorsImage, true)
-  hide(rockImage, true)
-  hide(rockImageDifficult, true)
-  hide(paperImageDifficult, true)
-  hide(scissorsImageDifficult, true)
-  hide(alienImage, true)
-  hide(lizardImage, true)
+function showDifficultOptions() {
+  for (var i = 0; i < fighters.length; i++) {
+    fighters[i].classList.remove("hidden")
+  }
 }
 
+function showClassicOptions(){
+  for (var i = 0; i < 4; i++) {
+    fighters[i].classList.remove("hidden")
+  }
+}
 // function displayIcon() {
 //   images.innerHTML += `<span class="icon">&#x1F920;</span>`
 // }
@@ -139,15 +142,15 @@ function startClassicGame(choice) {
   if (event.target.id === "scissorsImage") {
     game.human.token = "s"
   }
-  hideFighters();
+  hideOptions();
   setTimeout(function() {
-    showFighters()
+    showSelectedFighters()
   }, 1000);
   game.detectClassicWin();
   displayWins();
   setTimeout(function() {
     game.resetGame()
-  }, 2000);
+  }, 3000);
 }
 
 function findClassicComputerChoice() {
@@ -173,9 +176,9 @@ function startDifficultGame(choice) {
   if (event.target.id === "lizardImage") {
     game.human.token = "l"
   }
-  hideFighters();
+  hideOptions();
   setTimeout(function() {
-    showFighters()
+    showSelectedFighters()
   }, 1000);
   setTimeout(function() {
     game.resetGame()
@@ -190,7 +193,6 @@ function findDifficultComputerChoice() {
   return difficultChoices[randomChoiceDifficult];
 }
 
-
 function getWins() {
   game.human.retrieveWinsFromStorage();
   game.computer.retrieveWinsFromStorage();
@@ -201,21 +203,22 @@ function displayWins() {
   computerWins.innerText = `Wins: ${computer.wins}`
 }
 
-function changeGame() {
-  hide(difficultGameButton, true);
-  hide(classicGameButton, true);
-  hideFighters();
-  hide(changeGameButton, false)
+function changeGameOption() {
+  hide(difficultGameButton);
+  hide(classicGameButton);
+  hideOptions();
+  hide(changeGameButton)
   gameHeading.innerText = "Choose your game!"
 }
 
-function hide(element, hidden) {
-  if (hidden) {
-    element.classList.remove('hidden');
+function hide(element) {
+  if (element.classList.contains("hidden")) {
+    element.classList.remove("hidden")
   } else {
-    element.classList.add('hidden');
+    element.classList.add("hidden")
   }
 }
+
 //Need to do still:
 //add the emojis on the token option
 //add the change game button that resets the game
@@ -224,7 +227,9 @@ function hide(element, hidden) {
 //time out after each game
 //game, way to keep track of whose turn it is
 //README
-//push information into game.board
+//push information into game.board???
 
+//CSS:
+//left and right section to go all the way down
 //REFACTOR OPPORTUNITIES
 //change function names to verbs **
