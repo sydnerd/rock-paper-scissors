@@ -26,7 +26,7 @@ detectDifficultWin(){
   if (this.human.token === this.computer.token) {
     gameHeading.innerText = "It's a draw!"
   }
-  if(this.human.token === "r" && this.computer.token === "s" || this.human.token === "p" && this.computer.token === "r" || this.human.token === "s" && this.computer.token === "p" || this.human.token === "r" && this.computer.token === "l" || this.human.token === "p" && this.computer.token === "a" || this.human.token === "s" && this.computer.token === "l" || this.human.token === "l" && this.computer.token === "p" || this.human.token === "l" && this.computer.token === "a" || this.human.token === "a" && this.computer.token === "s"|| this.human.token === "a" && this.computer.token === "s"){
+  if(this.human.token === "r" && this.computer.token === "s" || this.human.token === "p" && this.computer.token === "r" || this.human.token === "s" && this.computer.token === "p" || this.human.token === "r" && this.computer.token === "l" || this.human.token === "p" && this.computer.token === "a" || this.human.token === "s" && this.computer.token === "l" || this.human.token === "l" && this.computer.token === "p" || this.human.token === "l" && this.computer.token === "a" || this.human.token === "a" && this.computer.token === "s"|| this.human.token === "a" && this.computer.token === "r"){
     this.human.addWin()
     gameHeading.innerText = "Human won this round!"
   }
