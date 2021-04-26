@@ -185,3 +185,13 @@ function hide(element, hidden) {
     element.classList.add('hidden');
   }
 }
+//Need to do still:
+//add the emojis on the token option
+//add the change game button that resets the game
+//reset method in game class
+//wins is null when you clear the storage 
+
+//REFACTOR OPPORTUNITIES
+//CSS:
+//the header, pink should but in the middle
+//
