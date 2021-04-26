@@ -40,8 +40,9 @@ class Game {
 
   resetGame() {
     hide(selectedTokens, false)
-    show();
     hide(changeGameButton, true);
+    show();
+    gameHeading.innerText = "Choose your fighter!"  
   }
 
 }

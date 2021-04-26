@@ -21,8 +21,10 @@ var paperImage = document.getElementById("paperImage");
 var paperImageDifficult = document.getElementById("paperImageDifficult")
 var scissorsIcon = document.getElementById("scissorsIcon");
 var scissorsImage = document.getElementById("scissorsImage");
-var scissorsImageDifficult = document.getElementById("scissorsImageDifficult")
+var scissorsImageDifficult = document.getElementById("scissorsImageDifficult");
 var selectedTokens = document.getElementById("selectedTokens");
+
+//GLOBAL VARIABLES
 var game = "";
 var human = new Player("human");
 var computer = new Player("computer")
@@ -109,9 +111,10 @@ function hideFighters() {
   hide(lizardImage, false)
 }
 
-function show(){
+//use event delegation and hide the container
+function show() {
   hide(paperImage, true)
-  hide(scissorsImage,true)
+  hide(scissorsImage, true)
   hide(rockImage, true)
   hide(rockImageDifficult, true)
   hide(paperImageDifficult, true)
@@ -193,10 +196,11 @@ function displayWins() {
   computerWins.innerText = `Wins: ${computer.wins}`
 }
 
-function change (){
+function change() {
   hide(difficultGameButton, true);
   hide(classicGameButton, true);
   hideFighters();
+  hide(changeGameButton,false)
 }
 
 function hide(element, hidden) {
