@@ -35,7 +35,7 @@ window.addEventListener("load", function() {
 })
 classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
-// changeGame.addEventListener("click", change)
+changeGame.addEventListener("click", change)
 rockImage.addEventListener("click", function() {
   classicGame("r");
 })
@@ -67,6 +67,7 @@ function classicView() {
   gameView();
   game = new Game("classic version", human, computer)
   hide(classicFighters, true);
+  show();
 }
 
 function difficultView() {
@@ -86,7 +87,6 @@ function showFighters() {
   var computerToken = game.computer.token;
   var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
   for (var i = 0; i < fighters.length; i++) {
-    console.log(fighters[0])
     if (humanToken === fighters[i].dataset.name) {
       humanTokenImage.src = `${fighters[i].src}`
     }
@@ -94,6 +94,7 @@ function showFighters() {
       computerTokenImage.src = `${fighters[i].src}`
     }
   }
+  hide(selectedTokens, true)
 }
 
 //use event delegation and hide the container
@@ -106,6 +107,17 @@ function hideFighters() {
   hide(scissorsImageDifficult, false)
   hide(alienImage, false)
   hide(lizardImage, false)
+}
+
+function show(){
+  hide(paperImage, true)
+  hide(scissorsImage,true)
+  hide(rockImage, true)
+  hide(rockImageDifficult, true)
+  hide(paperImageDifficult, true)
+  hide(scissorsImageDifficult, true)
+  hide(alienImage, true)
+  hide(lizardImage, true)
 }
 
 function classicGame(choice) {
@@ -123,9 +135,11 @@ function classicGame(choice) {
   setTimeout(function() {
     showFighters()
   }, 1000);
-  setTimeout(game.resetClassicGame, 2000)
   game.detectClassicWin();
   displayWins();
+  setTimeout(function() {
+    game.resetGame()
+  }, 2000);
 }
 
 function classicComputerChoice() {
@@ -155,7 +169,9 @@ function difficultGame(choice) {
   setTimeout(function() {
     showFighters()
   }, 1000);
-
+  setTimeout(function() {
+    game.resetGame()
+  }, 2000);
   game.detectDifficultWin();
   displayWins();
 }
@@ -177,6 +193,11 @@ function displayWins() {
   computerWins.innerText = `Wins: ${computer.wins}`
 }
 
+function change (){
+  hide(difficultGameButton, true);
+  hide(classicGameButton, true);
+  hideFighters();
+}
 
 function hide(element, hidden) {
   if (hidden) {

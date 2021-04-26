@@ -38,15 +38,10 @@ class Game {
     this.computer.retrieveWinsFromStorage();
   }
 
-  resetClassicGame() {
+  resetGame() {
     hide(selectedTokens, false)
-    classicView();
-    hide(classicFighters, false)
+    show();
     hide(changeGameButton, true);
-  }
-  resetDifficultGame() {
-    hide(difficultFighters, true)
-    hide(changeGameButton, true)
   }
 
 }
