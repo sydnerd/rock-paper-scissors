@@ -210,7 +210,7 @@ function hide(element) {
 }
 
 //Need to do still:
-//add the emojis on the token option
+//add the emojis on the token option- put a hover on the buttons 
 //get it to not say null on the scoreboard
 //gifs for README
 
