@@ -107,7 +107,6 @@ function showSelectedFighters() {
   selectedTokens.classList.remove("hidden")
 }
 
-//use event delegation and hide the container
 function hideOptions() {
   for (var i = 0; i < fighters.length; i++) {
     console.log(fighters[i])
@@ -115,7 +114,6 @@ function hideOptions() {
   }
 }
 
-//use event delegation and hide the container
 function showDifficultOptions() {
   for (var i = 0; i < fighters.length; i++) {
     fighters[i].classList.remove("hidden")
@@ -127,9 +125,6 @@ function showClassicOptions(){
     fighters[i].classList.remove("hidden")
   }
 }
-// function displayIcon() {
-//   images.innerHTML += `<span class="icon">&#x1F920;</span>`
-// }
 
 function startClassicGame(choice) {
   game.computer.token = findClassicComputerChoice();
@@ -217,13 +212,8 @@ function hide(element) {
 
 //Need to do still:
 //add the emojis on the token option
-//add the change game button that resets the game
-//reset method in game class
-//wins is null when you clear the storage
-//time out after each game
-//game, way to keep track of whose turn it is
 //README
-//push information into game.board???
+
 
 //CSS:
 //left and right section to go all the way down
