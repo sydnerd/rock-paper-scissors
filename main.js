@@ -71,9 +71,7 @@ function classicView() {
   game = new Game("classic version", human, computer)
   classicFighters.classList.remove("hidden")
   difficultFighters.classList.add("hidden")
-  // setTimeout(function() {
-    showClassicOptions()
-  // }, 2000);
+  showClassicOptions()
 }
 
 function difficultView() {
@@ -81,9 +79,7 @@ function difficultView() {
   game = new Game("difficult version", human, computer)
   difficultFighters.classList.remove("hidden")
   classicFighters.classList.add("hidden")
-  // setTimeout(function() {
-    showDifficultOptions()
-  // }, 2000);
+  showDifficultOptions()
 }
 
 function gameView() {
@@ -95,7 +91,6 @@ function gameView() {
 function showSelectedFighters() {
   var humanToken = game.human.token;
   var computerToken = game.computer.token;
-  // var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
   for (var i = 0; i < fighters.length; i++) {
     if (humanToken === fighters[i].dataset.name) {
       humanTokenImage.src = `${fighters[i].src}`
@@ -120,7 +115,7 @@ function showDifficultOptions() {
   }
 }
 
-function showClassicOptions(){
+function showClassicOptions() {
   for (var i = 0; i < 4; i++) {
     fighters[i].classList.remove("hidden")
   }
@@ -138,11 +133,11 @@ function startClassicGame(choice) {
     game.human.token = "s"
   }
   hideOptions();
-    showSelectedFighters()
+  showSelectedFighters()
   game.detectClassicWin();
   displayWins();
   setTimeout(function() {
-  game.resetGame()
+    game.resetGame()
   }, 1000);
 }
 
@@ -170,7 +165,7 @@ function startDifficultGame(choice) {
     game.human.token = "l"
   }
   hideOptions();
-    showSelectedFighters()
+  showSelectedFighters()
   setTimeout(function() {
     game.resetGame()
   }, 1000);
@@ -209,13 +204,3 @@ function hide(element) {
     element.classList.add("hidden")
   }
 }
-
-//Need to do still:
-//add the emojis on the token option
-//README
-
-
-//CSS:
-//left and right section to go all the way down
-//REFACTOR OPPORTUNITIES
-//change function names to verbs **

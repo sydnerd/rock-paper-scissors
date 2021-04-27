@@ -57,7 +57,7 @@ body {
 
 .game-button:hover {
   cursor: pointer;
-  background: white;
+  background-color: white;
 }
 
 .change-game-button:hover {
@@ -102,11 +102,7 @@ body {
 }
 
 .image:hover {
+  background-color: #DCDCDC;
   cursor: pointer;
-}
-
-span {
-  bottom: -24px;
-  left: -96px;
-  position: relative;
+  border-radius: 20%;
 }
