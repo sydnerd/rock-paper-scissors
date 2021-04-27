@@ -1,6 +1,6 @@
 /* BODY SECTION */
 body {
-  background-color: #DB7093;
+  background-color: #87CEEB;
   color: black;
   font-family: "Open Sans", sans-serif;
   margin: 0px;
@@ -40,7 +40,7 @@ body {
 .change-game-button {
   border: none;
   border-radius: 5px;
-  background-color: #DB7093;
+  background-color: #87CEEB;
   color: black;
   padding: 10px;
   margin-top: 50px;
