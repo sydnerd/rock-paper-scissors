@@ -10,7 +10,6 @@ Rock, Paper Scissors is an application which allows users to play the well known
 * If the user would like to play a different game, a "Change Game?" button will appear and the user can switch between Classic and Difficult.  
 
 ![](assets/RPS2.gif)
-
 ### Contributors
 The HTML, CSS, and Javascript for Rock, Paper, Scissors was written by [Sydney Bear](https://github.com/sydnerd) a frontend engineering student at [Turing School of Software & Design](https://turing.edu/).
 
