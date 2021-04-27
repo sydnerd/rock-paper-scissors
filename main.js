@@ -95,7 +95,6 @@ function gameView() {
 function showSelectedFighters() {
   var humanToken = game.human.token;
   var computerToken = game.computer.token;
-  // var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
   for (var i = 0; i < fighters.length; i++) {
     if (humanToken === fighters[i].dataset.name) {
       humanTokenImage.src = `${fighters[i].src}`
@@ -212,7 +211,8 @@ function hide(element) {
 
 //Need to do still:
 //add the emojis on the token option
-//README
+//get it to not say null on the scoreboard
+//gifs for README
 
 
 //CSS:
