@@ -1,30 +1,35 @@
 // VARIABLES FOR HTML ELEMENTS
-var classicGameButton = document.getElementById("classicGameButton");
-var difficultGameButton = document.getElementById("difficultGameButton");
-var classicFighters = document.getElementById("classicFighters");
-var difficultFighters = document.getElementById("difficultFighters")
-var gameHeading = document.getElementById("gameHeading");
-var rockImage = document.getElementById("rockImage");
-var rockIcon = document.getElementById("rockIcon");
-var rockImageDifficult = document.getElementById("rockImageDifficult")
-var paperImage = document.getElementById("paperImage");
-var paperIcon = document.getElementById("paperIcon");
-var paperImageDifficult = document.getElementById("paperImageDifficult")
-var scissorsImage = document.getElementById("scissorsImage");
-var scissorsIcon = document.getElementById("scissorsIcon");
-var scissorsImageDifficult = document.getElementById("scissorsImageDifficult")
-var lizardImage = document.getElementById("lizardImage");
-var lizardIcon = document.getElementById("lizardIcon");
 var alienImage = document.getElementById("alienImage");
 var alienIcon = document.getElementById("alienIcon");
-var humanWins = document.getElementById("humanWins");
-var computerWins = document.getElementById("computerWins")
 var changeGame = document.getElementById("changeGameButton");
+var classicFighters = document.getElementById("classicFighters");
+var classicGameButton = document.getElementById("classicGameButton");
+var computerTokenImage = document.getElementById("computerTokenImage");
+var computerWins = document.getElementById("computerWins");
+var difficultFighters = document.getElementById("difficultFighters");
+var difficultGameButton = document.getElementById("difficultGameButton");
+var gameHeading = document.getElementById("gameHeading");
 var humanTokenImage = document.getElementById("humanTokenImage");
-var computerTokenImage = document.getElementById("computerTokenImage")
+var humanWins = document.getElementById("humanWins");
+var images = document.querySelector("image");
+var lizardIcon = document.getElementById("lizardIcon");
+var lizardImage = document.getElementById("lizardImage");
+var paperIcon = document.getElementById("paperIcon");
+var rockIcon = document.getElementById("rockIcon");
+var rockImage = document.getElementById("rockImage");
+var rockImageDifficult = document.getElementById("rockImageDifficult")
+var paperImage = document.getElementById("paperImage");
+var paperImageDifficult = document.getElementById("paperImageDifficult")
+var scissorsIcon = document.getElementById("scissorsIcon");
+var scissorsImage = document.getElementById("scissorsImage");
+var scissorsImageDifficult = document.getElementById("scissorsImageDifficult");
+var selectedTokens = document.getElementById("selectedTokens");
+
+//GLOBAL VARIABLES
 var game = "";
 var human = new Player("human");
 var computer = new Player("computer")
+var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
 
 // EVENT LISTENERS
 window.addEventListener("load", function() {
@@ -34,58 +39,64 @@ window.addEventListener("load", function() {
 })
 classicGameButton.addEventListener("click", classicView)
 difficultGameButton.addEventListener("click", difficultView)
-changeGame.addEventListener("click", change)
+changeGame.addEventListener("click", changeGameOption)
 rockImage.addEventListener("click", function() {
-  classicGame("r");
+  startClassicGame("r");
 })
 paperImage.addEventListener("click", function() {
-  classicGame("p");
+  startClassicGame("p");
 })
 scissorsImage.addEventListener("click", function() {
-  classicGame("s");
+  startClassicGame("s");
 })
 alienImage.addEventListener("click", function() {
-  difficultGame("a");
+  startDifficultGame("a");
 })
 lizardImage.addEventListener("click", function() {
-  difficultGame("l");
+  startDifficultGame("l");
 })
 rockImageDifficult.addEventListener("click", function() {
-  difficultGame("r");
+  startDifficultGame("r");
 })
 paperImageDifficult.addEventListener("click", function() {
-  difficultGame("p");
+  startDifficultGame("p");
 })
 scissorsImageDifficult.addEventListener("click", function() {
-  difficultGame("s");
+  startDifficultGame("s");
 })
-
 
 // EVENT HANDLERS AND GLOBAL FUNCTIONS
 function classicView() {
   gameView();
   game = new Game("classic version", human, computer)
-  hide(classicFighters, true);
+  classicFighters.classList.remove("hidden")
+  difficultFighters.classList.add("hidden")
+  // setTimeout(function() {
+    showClassicOptions()
+  // }, 2000);
 }
 
 function difficultView() {
   gameView();
   game = new Game("difficult version", human, computer)
-  hide(difficultFighters, true);
+  difficultFighters.classList.remove("hidden")
+  classicFighters.classList.add("hidden")
+  // setTimeout(function() {
+    showDifficultOptions()
+  // }, 2000);
 }
 
 function gameView() {
-  hide(difficultGameButton, false);
-  hide(classicGameButton, false);
+  hide(difficultGameButton);
+  hide(classicGameButton);
   gameHeading.innerText = "Choose your fighter!"
 }
 
-function showFighters() {
+function showSelectedFighters() {
   var humanToken = game.human.token;
   var computerToken = game.computer.token;
-  var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
+  // var fighters = [rockImage, paperImage, scissorsImage, alienImage, lizardImage, rockImageDifficult, paperImageDifficult, scissorsImageDifficult];
   for (var i = 0; i < fighters.length; i++) {
-    console.log(fighters[0])
     if (humanToken === fighters[i].dataset.name) {
       humanTokenImage.src = `${fighters[i].src}`
     }
@@ -93,22 +104,30 @@ function showFighters() {
       computerTokenImage.src = `${fighters[i].src}`
     }
   }
+  selectedTokens.classList.remove("hidden")
 }
 
-//use event delegation and hide the container
-function hideFighters() {
-  hide(paperImage, false)
-  hide(scissorsImage, false)
-  hide(rockImage, false)
-  hide(rockImageDifficult, false)
-  hide(paperImageDifficult, false)
-  hide(scissorsImageDifficult, false)
-  hide(alienImage, false)
-  hide(lizardImage, false)
+function hideOptions() {
+  for (var i = 0; i < fighters.length; i++) {
+    console.log(fighters[i])
+    fighters[i].classList.add("hidden")
+  }
 }
 
-function classicGame(choice) {
-  game.computer.token = classicComputerChoice();
+function showDifficultOptions() {
+  for (var i = 0; i < fighters.length; i++) {
+    fighters[i].classList.remove("hidden")
+  }
+}
+
+function showClassicOptions(){
+  for (var i = 0; i < 4; i++) {
+    fighters[i].classList.remove("hidden")
+  }
+}
+
+function startClassicGame(choice) {
+  game.computer.token = findClassicComputerChoice();
   if (event.target.id === "rockImage") {
     game.human.token = "r"
   }
@@ -118,23 +137,23 @@ function classicGame(choice) {
   if (event.target.id === "scissorsImage") {
     game.human.token = "s"
   }
-  event.target.innerHTML += `<span class="icon" id="rockIcon">&#x1F920;</span>`
-  hideFighters();
-  setTimeout(function() {
-    showFighters()
-  }, 1000);
+  hideOptions();
+    showSelectedFighters()
   game.detectClassicWin();
   displayWins();
+  setTimeout(function() {
+  game.resetGame()
+  }, 1000);
 }
 
-function classicComputerChoice() {
+function findClassicComputerChoice() {
   var classicChoices = ["r", "p", "s"];
   var randomChoiceClassic = Math.floor(Math.random() * 3);
   return classicChoices[randomChoiceClassic];
 }
 
-function difficultGame(choice) {
-  game.computer.token = difficultComputerChoice();
+function startDifficultGame(choice) {
+  game.computer.token = findDifficultComputerChoice();
   if (event.target.id === "rockImageDifficult") {
     game.human.token = "r"
   }
@@ -150,22 +169,19 @@ function difficultGame(choice) {
   if (event.target.id === "lizardImage") {
     game.human.token = "l"
   }
-  hideFighters();
+  hideOptions();
+    showSelectedFighters()
   setTimeout(function() {
-    showFighters()
+    game.resetGame()
   }, 1000);
   game.detectDifficultWin();
   displayWins();
 }
 
-function difficultComputerChoice() {
+function findDifficultComputerChoice() {
   var difficultChoices = ["r", "p", "s", "a", "l"]
   var randomChoiceDifficult = Math.floor(Math.random() * 5);
   return difficultChoices[randomChoiceDifficult];
-}
-
-function change() {
-
 }
 
 function getWins() {
@@ -178,20 +194,28 @@ function displayWins() {
   computerWins.innerText = `Wins: ${computer.wins}`
 }
 
-function hide(element, hidden) {
-  if (hidden) {
-    element.classList.remove('hidden');
+function changeGameOption() {
+  hide(difficultGameButton);
+  hide(classicGameButton);
+  hideOptions();
+  hide(changeGameButton)
+  gameHeading.innerText = "Choose your game!"
+}
+
+function hide(element) {
+  if (element.classList.contains("hidden")) {
+    element.classList.remove("hidden")
   } else {
-    element.classList.add('hidden');
+    element.classList.add("hidden")
   }
 }
+
 //Need to do still:
 //add the emojis on the token option
-//add the change game button that resets the game
-//reset method in game class
-//wins is null when you clear the storage 
+//README
 
-//REFACTOR OPPORTUNITIES
+
 //CSS:
-//the header, pink should but in the middle
-//
+//left and right section to go all the way down
+//REFACTOR OPPORTUNITIES
+//change function names to verbs **

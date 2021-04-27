@@ -7,16 +7,6 @@ body {
   height: 100vh;
 }
 
-/* NAVIGATE BAR */
-nav {
-  background-color: #DB7093;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 80px;
-  font-size: 4rem;
-}
-
 /* MAIN PAGE */
 .main-page {
   display: flex;
@@ -29,11 +19,11 @@ nav {
 .left-section {
   background-color: #DCDCDC;
   width: 20%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
   align-items: center;
-  /* margin: 100px 50px; */
 }
 
 .human-wins,
@@ -92,6 +82,11 @@ nav {
 
 .hidden {
   display: none;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: 0px;
 }
 
 /* FIGHTERS */
