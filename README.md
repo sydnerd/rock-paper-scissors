@@ -14,7 +14,7 @@ Rock, Paper Scissors is an application which allows users to play the well known
 
 ![](assets/RPS2.gif)
 
-### Contributors
+### Contributor
 The HTML, CSS, and Javascript for Rock, Paper, Scissors was written by [Sydney Bear](https://github.com/sydnerd) a frontend engineering student at [Turing School of Software & Design](https://turing.edu/).
 
 ### Languages
