@@ -11,13 +11,14 @@ Rock, Paper Scissors is an application which allows users to play the well known
 * Either the user wins, the computer wins, or there is a draw
 * On the top left and right sections of the page, the application keeps tracks of all the wins for the perspective players and stores them to local storage
 * If the user would like to play a different game, a "Change Game?" button will appear and the user can switch between Classic and Difficult.
+
 ![](assets/RPS2.gif)
 
 ![](assets/Winner.gif)
 
 1[](assets/Full.gif)
 
-### Contributors
+### Contributor
 The HTML, CSS, and Javascript for Rock, Paper, Scissors was written by [Sydney Bear](https://github.com/sydnerd) a frontend engineering student at [Turing School of Software & Design](https://turing.edu/).
 
 ### Languages
