@@ -24,8 +24,7 @@ class Game {
     }
     if (this.human.token === "r" && this.computer.token === "s" || this.human.token === "p" && this.computer.token === "r" || this.human.token === "s" && this.computer.token === "p" || this.human.token === "r" && this.computer.token === "l" || this.human.token === "p" && this.computer.token === "a" || this.human.token === "s" && this.computer.token === "l" || this.human.token === "l" && this.computer.token === "p" || this.human.token === "l" && this.computer.token === "a" || this.human.token === "a" && this.computer.token === "s" || this.human.token === "a" && this.computer.token === "r") {
       this.human.addWin()
-      gameHeading.innerText = "Human won this round!"
-    }
+      gameHeading.innerText = "Human won this round!"    }
     if (this.human.token === "r" && this.computer.token === "p" || this.human.token === "p" && this.computer.token === "s" || this.human.token === "s" && this.computer.token === "r" || this.human.token === "r" && this.computer.token === "a" || this.human.token === "p" && this.computer.token === "l" || this.human.token === "s" && this.computer.token === "a" || this.human.token === "l" && this.computer.token === "r" || this.human.token === "l" && this.computer.token === "s" || this.human.token === "a" && this.computer.token === "p" || this.human.token === "a" && this.computer.token === "l") {
       this.computer.addWin()
       gameHeading.innerText = "Computer won this round!"
