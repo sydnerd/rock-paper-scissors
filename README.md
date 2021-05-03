@@ -2,7 +2,7 @@
 By: [Sydney Bear](https://github.com/sydnerd)
 
 ## Overview
-Rock, Paper Scissors is an application which allows users to play the well known hand game virtually against the computer! There are two different game options: Classic and Difficult. The Classic game has the regular Rock, Paper, and Scissors options and the Difficult includes a Lizard and an Alien additionally. 
+[Rock, Paper Scissors](https://sydnerd.github.io/rock-paper-scissors/) is an application which allows users to play the well known hand game virtually against the computer! There are two different game options: Classic and Difficult. The Classic game has the regular Rock, Paper, and Scissors options and the Difficult includes a Lizard and an Alien additionally. 
 
 [View deployed page here!](https://sydnerd.github.io/rock-paper-scissors/)
 
